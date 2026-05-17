@@ -2,6 +2,7 @@
 
 > **Take-Home Assignment — TRACE Core Member**
 > **Time expectation: 1-2 hours max.**
+
 > We care more about clear thinking than perfect polish. You may use coding agents like Claude Code/Codex, but your final submission must reflect your own understanding.
 
 ---
