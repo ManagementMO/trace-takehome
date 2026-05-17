@@ -2,8 +2,7 @@
 
 > **Take-Home Assignment — TRACE Core Member**
 > **Time expectation: 1-2 hours max.**
-
-> We care more about clear thinking than perfect polish. You may use coding agents like Claude Code/Codex, but your final submission must reflect your own understanding.
+> We care more about clear thinking than perfect polish. You may use AI tools — see the AI Usage Note below for what we expect.
 
 ---
 
@@ -266,6 +265,10 @@ What it does on failure:
 Why it would have prevented this case:
 ```
 
+Then **rank your controls** by what you would ship first in production tomorrow. Explain why — one sentence per control is enough.
+
+> 💡 A strong answer prioritizes the control that blocks the most harmful action first, not the most architecturally interesting one.
+
 ---
 
 ### Part 4 — Regression Test Artifact
@@ -308,11 +311,37 @@ def verify_refund_policy(task, trace, docs, order):
 
 ---
 
+### Part 7 — AI Usage Note
+
+If you used AI tools, briefly state:
+
+- Which tools you used, if any
+- What you used them for
+- What parts you personally verified or changed
+- One place where you disagreed with or improved the AI's output
+
+> This does not affect your score positively or negatively — we're not trying to catch you. We ask because strong candidates can describe where their judgment diverged from the tool's output. If you didn't use AI, just write "None."
+
+---
+
+## ⚠️ Heads Up: Live Follow-Up
+
+This take-home is paired with a short live session where we'll ask you to **defend and modify your answer in real time.** For example:
+
+- *"You identified Step X as the first unrecoverable failure — what would change your answer to Step Y?"*
+- *"Now imagine `refund_policy_v4` was not retrieved at all in Step 2. Does your first unrecoverable step change? What repair would you prioritize?"*
+- *"What would you actually ship first to prevent this class of failure in production tomorrow?"*
+
+You don't need to prepare anything extra. Just make sure you understand your own submission well enough to defend every decision and adapt to a changed scenario on the spot.
+
+---
+
 ## 📁 Submission Summary
 
 | Item | Requirement |
 |---|---|
 | **Required file** | `trace_takehome_[your_name].md` |
 | **Optional files** | Supporting artifacts, code, diagrams |
-| **Evaluation focus** | Clear thinking over perfect polish |
-| **AI tool use** | Permitted — but the submission must reflect **your own understanding** |
+| **Evaluation focus** | Clear thinking, defensible decisions, prioritized controls |
+| **AI tool use** | Permitted — document it in Part 7 |
+| **Live follow-up** | Yes — be ready to defend and adapt your answer |
