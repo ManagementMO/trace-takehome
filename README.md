@@ -1,33 +1,38 @@
 # TRACE Mini Failure Lab: Diagnose and Prevent an Agent Failure
 
 > **Take-Home Assignment — TRACE Core Member**
-> Time expectation: **1-2 hours max**
+> **Time expectation: 2–4 hours max.**
+> We care more about clear thinking than perfect polish. You may use coding agents like Claude Code/Codex, but your final submission must reflect your own understanding.
 
 ---
 
-## 📋 Overview
+## 📌 What We're Evaluating
 
-TRACE is an agentic QA and observability system for AI agents. The goal is not just to determine *whether* an agent failed — TRACE helps engineers understand:
-
-- **What** failed?
-- **Where** did the workflow become unrecoverable?
-- **What evidence** proves it?
-- **What control/guardrail/verifier** would prevent this class of failure from returning?
-
----
-
-## 🎯 What We're Evaluating
-
-This is **not** a trivia or domain-knowledge test. We're evaluating whether you can:
+This is **not** a trivia or domain-knowledge test. We are testing whether you can:
 
 | Skill | Description |
 |---|---|
-| 🧭 Trace Reading | Understand an agent workflow from logs/traces |
-| 🔬 Root Cause Analysis | Separate root cause from visible symptom |
-| ✅ Verification Reasoning | Reason about verifiers and evidence |
-| 🛠️ Engineering Fixes | Propose realistic, concrete engineering controls |
-| ✍️ Communication | Communicate clearly and concisely |
-| 🏭 Production Thinking | Think in terms of production agent reliability |
+| 🧭 **Trace Reading** | Understand an agent workflow from logs/traces |
+| 🔬 **Root Cause Analysis** | Separate root cause from visible symptom |
+| ✅ **Verification Reasoning** | Reason about verifiers and evidence |
+| 🛠️ **Engineering Fixes** | Propose realistic, concrete engineering controls |
+| ✍️ **Communication** | Communicate clearly and concisely |
+| 🏭 **Production Thinking** | Think in terms of production agent reliability |
+
+---
+
+## 🧠 Context
+
+TRACE is an agentic QA and observability system for AI agents.
+
+The goal is not just to say whether an agent failed. TRACE should help engineers understand:
+
+1. **What** failed?
+2. **Where** did the workflow become unrecoverable?
+3. **What evidence** proves it?
+4. **What control/guardrail/verifier** would prevent this class of failure from returning?
+
+You are given a failed agent trajectory from a fictional customer-support/refund agent. Your job is to analyze the trace and produce a concise **Failure Repair Bundle**.
 
 ---
 
@@ -35,7 +40,7 @@ This is **not** a trivia or domain-knowledge test. We're evaluating whether you 
 
 A support agent is connected to a mock customer-support system.
 
-**User task given to the agent:**
+**Task given to the agent:**
 
 > Customer Casey Nguyen bought the Pro Plan 47 days ago and is asking for a refund because they had trouble using the export feature. Check the policy and account/order details, then take the correct next action. **Do not issue a refund unless the current policy allows it.**
 
@@ -191,9 +196,13 @@ A support agent is connected to a mock customer-support system.
 
 ---
 
-## 📬 Deliverables
+## 📬 Your Deliverables
 
-Submit **one file** named: trace_takehome [your_name].md
+Submit **one file** named:
+
+```
+trace_takehome_[your_name].md
+```
 
 > Optional supporting files are allowed but not required.
 
@@ -201,7 +210,7 @@ Submit **one file** named: trace_takehome [your_name].md
 
 ### Part 1 — Failure Card
 
-Write a concise failure card covering:
+Write a concise failure card with:
 
 - Failure title
 - Task success / failure
@@ -219,7 +228,7 @@ Use whatever format you think is clearest.
 
 ### Part 2 — Trace Diagnosis
 
-Answer the following questions:
+Answer the following:
 
 1. Where did the agent **first become unrecoverable**?
 2. What was the **visible symptom**?
@@ -234,7 +243,7 @@ Answer the following questions:
 
 Propose **at least 3 concrete engineering controls** that would prevent this class of failure from repeating.
 
-Acceptable control types include:
+Acceptable control types include (but are not limited to):
 
 - Pre-tool-call guardrail
 - Tool argument provenance check
@@ -246,15 +255,15 @@ Acceptable control types include:
 - CI / release gate
 - Runtime monitor
 
-For **each control**, explain:
+For **each control**, provide:
 
-| Field | Description |
-|---|---|
-| **Control** | Name/type of the control |
-| **Where it is installed** | In the pipeline/system |
-| **What it checks** | The specific condition it verifies |
-| **What it does on failure** | The action taken when the check fails |
-| **Why it would have prevented this case** | Specific reasoning for this trace |
+```
+Control:
+Where it is installed:
+What it checks:
+What it does on failure:
+Why it would have prevented this case:
+```
 
 ---
 
@@ -269,38 +278,40 @@ Create a small regression test spec in **JSON or Markdown** containing:
 - `forbidden_actions`
 - `verifier_checks`
 - `severity`
-- `blocks_release` (boolean)
+- `blocks_release`
 
 ---
 
 ### Part 5 — Mini Architecture Sketch
 
 In **5–10 sentences**, describe how TRACE should process this failure end-to-end:
+
+```
 task → agent run → trace → verifier → attribution → repair package → regression test / CI gate
-Clarify what should be **deterministic/objective** versus what can be **LLM-assisted**.
+```
+
+Address what should be **deterministic/objective** versus what can be **LLM-assisted**.
 
 ---
 
 ### Part 6 — Small Code / Pseudocode *(Optional)*
 
-Optional but encouraged if you want to demonstrate engineering strength.
-
-Write a tiny verifier function or pseudocode that detects this failure. Example signature:
+Write a small verifier function or pseudocode that detects this failure. Example signature:
 
 ```python
 def verify_refund_policy(task, trace, docs, order):
     ...
 ```
 
-> ⏱️ Don't spend too much time here. **Correct reasoning matters more than polished code.**
+> ⏱️ Don't spend too much time here — correct reasoning matters more than polished code.
 
 ---
 
-## 📁 Submission
+## 📁 Submission Summary
 
-| Item | Details |
+| Item | Requirement |
 |---|---|
 | **Required file** | `trace_takehome_[your_name].md` |
-| **Optional files** | Supporting artifacts, code files, diagrams |
+| **Optional files** | Supporting artifacts, code, diagrams |
 | **Evaluation focus** | Clear thinking over perfect polish |
-| **Tool use** | Coding agents (Claude Code, Codex, etc.) are permitted, but the submission must reflect **your own understanding** |
+| **AI tool use** | Permitted — but the submission must reflect **your own understanding** |
