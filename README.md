@@ -1,7 +1,7 @@
 # TRACE Mini Failure Lab: Diagnose and Prevent an Agent Failure
 
 > **Take-Home Assignment — TRACE Core Member**
-> Time expectation: **2–4 hours max**
+> Time expectation: **1-2 hours max**
 
 ---
 
